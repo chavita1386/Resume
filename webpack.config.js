@@ -23,7 +23,7 @@ module.exports = {
           }
           // other vue-loader options go here
         }
-      },
+      },      
       {
         test: /\.js$/,
         loader: 'babel-loader',

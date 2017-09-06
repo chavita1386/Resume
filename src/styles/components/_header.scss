@@ -1,0 +1,14 @@
+.header {
+    display: block;    
+    height: 150px;        
+    margin-left: 200px;
+    background-color: $third;
+    color: $white;
+    text-align: center;
+}
+
+.header__title {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}

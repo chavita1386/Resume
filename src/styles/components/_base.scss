@@ -1,0 +1,49 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;       
+    font-family: sans-serif;
+}
+
+img {
+    max-width : 100%;
+    height    : auto;
+}
+
+a {
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        text-decoration: underline
+    }     
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-title;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.4em;
+    font-weight: normal;
+}

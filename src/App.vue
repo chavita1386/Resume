@@ -1,19 +1,31 @@
 <template>
-  <person></person>
+  <div>
+    <header class="header">
+      <h1 class="header__title">{{name}}</h1>      
+    </header>
+    <aside>
+      Aside
+    </aside>
+    <main>
+      Main
+    </main>
+  </div>
+  <!-- <person></person> -->
 </template>
 
 <script>
-import person from './components/Person.vue';
+// import person from './components/Person.vue';
+// import cabeza from './components/Header.vue';
 export default {
-  components:  { person },
-  data () {
+  // components:  { cabeza },
+  data() {
     return {
-      msg: 'Welcome to Chavitas Resume'
+      name: 'Salvador Rocha Robledo'
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style src="./styles/style.scss" lang="scss">
 
 </style>

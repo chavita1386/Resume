@@ -1,0 +1,32 @@
+/*
+    Colors
+*/
+
+$primary:   #ccc;
+$secondary: #666;
+$third:     #333;
+
+$white:     #f0f0f0;
+$black:     #222;
+$gray:      #e1e1e1;
+
+/*
+    Fonts
+*/
+
+$font-family:   'Quicksand', sans-serif;
+$font-title:    'Inconsolata', monospace;
+$font-informal: 'Gloria Hallelujah', cursive;
+
+/*
+    Breakpoints
+*/
+
+$max-width: 1200px;
+$breakpoints : (
+    s  : 0,
+    m  : 640px,
+    l  : 1024px,
+    xl : 1440px
+  ) !default;
+

@@ -3,7 +3,7 @@
         <template v-if="persona">
             <h1 v-text="datosPersona.nombre"></h1>
             <h2 v-text="datosPersona.email"></h2>
-            <img v-bind:src="datosPersona.foto"></h2>
+            <!-- <img v-bind:src="datosPersona.foto"></h2> -->
         </template>
     </div>
 </template>
@@ -17,17 +17,24 @@ export default {
         }
     },
     mounted() {
-        axios.get('https://randomuser.me/api/')
+        var config = {
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+        axios.get('http://bossinovations.com.stem.arvixe.com/api/Usuario/')
             .then((response) => {
-                this.persona = response.data.results[0];
+                console.log(response);
+                this.persona = response.data[0];
             })
-            .catch();
+            .catch((response) => {
+                console.error(response);
+            });
     },
     computed: {
         datosPersona() {
             return {
-                nombre: `${this.persona.name.first} ${this.persona.name.last}`,
-                foto: this.persona.picture.large,
+                nombre: `${this.persona.name} ${this.persona.last}`,                
                 email: this.persona.email
             }
         }
