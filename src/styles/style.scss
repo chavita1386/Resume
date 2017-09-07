@@ -1,4 +1,11 @@
 @import 'components/_config';
+@import '~ed-grid/ed-grid';
 @import 'components/_base';
 @import 'components/_app.scss';
 @import 'components/_header.scss';
+@import 'components/_aside.scss';
+@import 'components/_main.scss';
+@import 'components/_menu.scss';
+
+
+@import 'vueComponents/_vue.scss';

@@ -1,0 +1,50 @@
+.professional {
+  margin: 15px 0;
+  padding: 0 15px;
+}
+
+.level-low,
+.level-medium,
+.level-high,
+.level-expert{
+  margin: 15px 0;
+  height: 10px;
+  background-color: $black;  
+  transition: all 3s;
+  width: 100%;
+  position:relative;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 10px;
+    background-color: $link;        
+    transition: all .5s;
+  }
+}
+.level-high {  
+  &:before {
+    width: 80%;
+  }  
+  .animate:before {
+    width: 80%;
+  }  
+}
+
+.level-low {
+  &:before {
+    width: 25%;
+  }
+}
+
+.level-medium {
+  &:before {
+    width: 50%;
+  }
+}
+
+.level-expert {
+  &:before {
+    width: 98%;
+  }
+}

@@ -9,6 +9,12 @@ $third:     #333;
 $white:     #f0f0f0;
 $black:     #222;
 $gray:      #e1e1e1;
+$link:      steelblue;
+
+// Social Colors
+$twitter:   #1DA1F2;
+$linkedin:  #0077B5;
+$github:    #323131;
 
 /*
     Fonts
@@ -18,15 +24,12 @@ $font-family:   'Quicksand', sans-serif;
 $font-title:    'Inconsolata', monospace;
 $font-informal: 'Gloria Hallelujah', cursive;
 
-/*
-    Breakpoints
-*/
+// Selectores (clases) para flex-container y flex-item
+$container : container !default;
+$item      : item !default;
 
-$max-width: 1200px;
-$breakpoints : (
-    s  : 0,
-    m  : 640px,
-    l  : 1024px,
-    xl : 1440px
-  ) !default;
+// Ancho máximo para los contenedores
+$max-width : 100%;
 
+// Seperación horizontal entre items (*2)
+//$gutter : em(15px);
