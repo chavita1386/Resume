@@ -1,0 +1,27 @@
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  font-size: .8em;
+  font-family: $font-family;
+}
+
+.vue__logo,
+{
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.net__logo {
+  width: 25px;
+  height: auto;
+  vertical-align: middle;
+  position: relative;
+  top: 5px;
+}
+
+.ed__logo {
+  width: 27px;
+  height: auto;
+  vertical-align: auto;
+}

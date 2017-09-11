@@ -1,30 +1,46 @@
 .aside {
     position: fixed;
-    background-color:lighten($gray, 8%);
-    height: 100vh;
-    width: 20%;
-    top: 0;    
+    background-color:lighten($gray, 8%);    
+    height: 100vh;    
     overflow: hidden;   
-    box-shadow: 6px 0px 10px 0px rgba(130,130,130,0.66);      
+    box-shadow: 6px 0px 10px 0px rgba(130,130,130,0.66);
+    width: 20%;    
+    
+    @include to(m){
+        width: 100%;
+        z-index: 2000;
+        top:150%;
+        // bottom: -100vh;        
+        transition: all .6s;
+        &.in {
+            top: 0;
+            bottom: none;
+        }
+    }    
 }
 
 .content {
-    position: absolute;
-    padding-bottom: 30px;
+    position: absolute;    
     top: 0;
     bottom: 0;
     left: 0;
     right: -17px; /* Increase/Decrease this value for cross-browser compatibility */
-    overflow-y: scroll;
+    overflow-y: scroll;     
+    padding: 0 17px 30px 0;
+
+    @include to(m){
+        padding: 0 17px 90px 0;
+    }
 }
 
 .photo {
-    border: 2px solid $secondary;
+    border: 1px solid $gray;
     text-align: center;
     background: #fff;
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     position: relative;    
+    border-radius: 50%;
     overflow: hidden;
     margin: 1em auto;
     // &:before {
@@ -39,9 +55,6 @@
     //     font-family: "untitled-font-1" !important;
     // }
     .photo__img {        
-        @include from(m) {
-            width: 80%;
-            height: auto;
-        }
+        
     }
 }

@@ -15,6 +15,9 @@ export default {
     return {
     }
   },
+  mounted() {
+    //console.log(this.socialItem);
+  },
   computed: {
     cssClasses: function(name) {
       return 'list__ico list__ico--' + name;

@@ -2,10 +2,28 @@
     background-color: white;  
     font-family: $font-family;  
     margin-bottom: 50px;
+    transition: all 2s;
+    
+
+    &.hide {
+        //display: none;
+        //pacity: 0;        
+        height: 350px;
+        overflow: hidden;
+    }
+
+    &.in {
+        //display: block;
+        //opacity: 1;        
+        height: none;
+        overflow: auto;
+    }
+   
 }
 
 .info {
     padding: 0 10px;
+    text-align: center;
     
     @include from(l){        
         padding: 0 60px;
@@ -14,12 +32,17 @@
 
 .info__title {
     text-align: center;
+    border-bottom: 2px solid $link;
+    display: inline-block;
+    //margin:  auto;
+    margin: 1.2em 0;
 }
 
 .info__text {
     text-align: justify;
     color: $black; 
     margin: 0;   
+    line-height: 1.35em;
 
     strong {
         color: steelblue;
@@ -27,9 +50,12 @@
     }
 }
 
+.info__container {
+    margin: 0 0 30px 0;
+}
 .info__title--h4 {
     font-weight: 700;
-    margin: 20px 0 0 0;
+    margin: 0;
     padding: 0;    
 }
 .info__title--h5 {
@@ -40,7 +66,7 @@
 }
 
 .card {
-    border: 1px solid lighten($black, 5%);
+    border: 1px solid lighten($black, 60%);
     margin: 0 0 30px 0;
     padding: 10px;
     text-align: center;

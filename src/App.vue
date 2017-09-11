@@ -1,30 +1,60 @@
 <template>
   <div>
-    <div class="menu to-m">
-      <span class="icon-bars"></span>
+    <div class="loading" v-if="loading">
+      <svg class="lds-blocks" width="100px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;">
+        <rect x="19" y="19" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="40" y="19" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.125s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="61" y="19" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.25s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="19" y="40" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.875s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="61" y="40" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.375s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="19" y="61" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.75s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="40" y="61" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.625s" calcMode="discrete"></animate>
+        </rect>
+        <rect x="61" y="61" width="20" height="20" fill="#8cd0e5">
+          <animate attributeName="fill" values="#376888;#8cd0e5;#8cd0e5" keyTimes="0;0.125;1" dur="1s" repeatCount="indefinite" begin="0.5s" calcMode="discrete"></animate>
+        </rect>
+      </svg>
+    </div>
+    <div class="to-m" @click="toggleMenu = !toggleMenu" :class="toggleMenu ? 'menu in': 'menu hide'">
+      <label>{{ toggleMenu ? 'Close': 'Contact'}}</label>
+      <!-- <span class="icon-arrow-up" v-show="!toggleMenu"></span>
+      <span class="icon-cancel-squared" v-show="toggleMenu"></span> -->
     </div>
     <!--      ASIDE     -->
-    <aside class="aside item no-padding from-m m-30 l-20 ">
+    <aside class="item m-30 l-20" :class="toggleMenu ? 'aside in':'aside hide'">
       <div class="content">
-        <div class="profile">                  
+        <div class="profile">
           <figure class="photo">
-            <img src="./assets/profile.jpg" class="photo__img" :alt="name">
+            <img src="./assets/profile.png" class="photo__img" :alt="name">
           </figure>
         </div>
 
         <asideTitle title="Contact"></asideTitle>
 
-        <contact :email="email" :cell="cell" :location="location"></contact>
+        <contact class="padding" :email="email" :cell="cell" :location="location"></contact>
 
-        <social :socialItem="socialNetwork"></social>
+        <social class="padding" :socialItem="socialNetwork"></social>
 
         <asideTitle title="Education"></asideTitle>
 
-        <education :lstEducation="education"></education>
+        <education class="padding" :lstEducation="education"></education>
 
         <asideTitle title="Professional Skills"></asideTitle>
 
-        <professional v-for="item in professionalSkills" :technology="item.technology" :percent="item.percent" :key="item.id"></professional>
+        <professional class="padding" v-for="item in professionalSkill" :technology="item.technology" :percent="item.percent" :key="item.id"></professional>
 
       </div>
     </aside>
@@ -35,72 +65,18 @@
     </header>
 
     <!--      MAIN      -->
-    <main class="main item s-100 m-70 l-80 to-right">
+    <main class="item s-100 m-70 l-80 to-right" :class="toggleMenu ? 'main hide':'main in'">
       <div class="container">
-        <div class="item info">
-          <h2 class="info__title">Profile</h2>
-          <p class="info__text">
-            {{profile}}
-          </p>
-        </div>
-        <div class="item info">
-          <h2 class="info__title">Experience</h2>
-          <div>
-            <h4 class="info__title--h4">NISSAN / SINERSYS </h4>
-            <h5 class="info__title--h5">OCTOBER 2015 - DECEMBER 2015</h5>
-            <p class="info__text">
-              <strong>Senior Developer .NET and Frontend - </strong>
-              Testing and improve Software called TAMESIS in ASP.NET 4.5 and SQL Server 2008 and I develop new UI for TAMESIS compatible with Internet Explorer 9 and Google Chrome.
-            </p>
-          </div>
-          <div>
-            <h4 class="info__title--h4">FREELANCE</h4>
-            <h5 class="info__title--h5">JANUARY 2014 - OCTOBER 2015</h5>
-            <p class="info__text">
-              <strong>Senior Developer .NET and Frontend - </strong>
-              Developer applications (web and desktop) on Microsoft Framework 4.5, for example: a Financial System for the Government , around 15 web pages including a tool to manage them, a Client-Server application to control anothers computers and mange them
-            </p>
-          </div>
-        </div>
-
-        <div class="item info">
-          <h2 class="info__title">
-            Professional Development
-          </h2>
-          <div class="container">
-            <div class="item m-50">
-              <div class="card">
-                <h4>Certificate Microsoft Sharepoint 2007 </h4>
-                <h5>Aguascalientes, Ags. México</h5>
-                <h5>Jan 2010</h5>
-              </div>
-            </div>
-            <div class="item m-50">
-              <div class="card">
-                <h4>Certificate Microsoft Sharepoint 2007 </h4>
-                <h5>Aguascalientes, Ags. México</h5>
-                <h5>Jan 2010</h5>
-              </div>
-            </div>
-            <div class="item m-50">
-              <div class="card">
-                <h4>Certificate Microsoft Sharepoint 2007 </h4>
-                <h5>Aguascalientes, Ags. México</h5>
-                <h5>Jan 2010</h5>
-              </div>
-            </div>
-            <div class="item m-50">
-              <div class="card">
-                <h4>Certificate Microsoft Sharepoint 2007 </h4>
-                <h5>Aguascalientes, Ags. México</h5>
-                <h5>Jan 2010</h5>
-              </div>
-            </div>
-          </div>
-        </div>
+        <contentVue class="item info" v-for="content in contents" :key="content.idContent" :title="content.title" :contentText="content.contentText">          
+        </contentVue>        
       </div>
     </main>
 
+    <footer class="footer item s-100 m-70 l-80 to-right no-padding" v-if="name != ''">    
+      <p class="item">Website made with <img src="./assets/logo.png" alt="" class="vue__logo"> 
+        <span class="net__logo"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512 512"><g fill="#008cdb"><path d="M496 159.211H365.232v19.383h53.944v167.195h22.885V178.594H496zM343.163 178.594v-19.383h-99.94v186.578h99.94v-19.391h-77.058V261.25h68.654v-19.383h-68.654v-63.273zM48.227 336.68c0 8.898-7.212 16.109-16.109 16.109-8.902 0-16.117-7.211-16.117-16.109 0-8.906 7.215-16.109 16.117-16.109 8.896-.001 16.109 7.202 16.109 16.109zM217.232 159.211h-22.888v147.297L89.102 159.211H66.217v186.578h22.885V198.633L194.42 345.789h22.812z"/></g></svg></span>
+      <img src="./assets/ed-grid.png" alt="" class="ed__logo"></p>    
+  </footer>
   </div>
   <!-- <person></person> -->
 </template>
@@ -113,62 +89,48 @@ import contact from './components/Contact.vue';
 import social from './components/Social.vue';
 import education from './components/Education.vue';
 import professional from './components/Professional.vue';
+import contentVue from './components/Content.vue';
+
+//Extarnal
+import axios from 'axios';
 export default {
-  components: { asideTitle, contact, social, education, professional },
+  components: { asideTitle, contact, social, education, professional, contentVue },
   data() {
     return {
-      name: 'Salvador Rocha Robledo',
-      title: 'asdfas',
-      email: 'srocha@hotmail.com',
-      cell: '4491248400',
-      profile: 'I am a web developer with six years of experience in Microsoft .NET Framework and Java as backend and frontend, including three years as lead programmer in the Government of Aguascalientes in which we helped it to improve and change about ten systems. After that I worked as a Freelance about two years developing Web Apps one of them a financial system for the Government, and five Web pages with web Administrator. Lately my approach is as Frontend developer using new technologies like AngularJS, ReactJS, NodeJS, SASS, Stylus, Jade, etc. I am passionate developer with all kinds of technology and I like to learn by myself and share my knowledge with others.',
-      location: {
-        city: 'Aguascalientes',
-        state: 'Aguascalientes',
-        postcode: 20256.0,
-      },
-      socialNetwork:
-      [
-        {
-          idSocialNetwork: 1,
-          name: 'twitter',
-          url: 'https://twitter.com/chavita1386'
-        },
-        {
-          idSocialNetwork: 2,
-          name: 'github',
-          url: 'https://github.com/chavita1386'
-        },
-        {
-          idSocialNetwork: 3,
-          name: 'linkedin',
-          url: 'https://linkedin.com/chavita1386'
-        }
-      ],
-      education: [{
-        idEducation: 1,
-        title: 'Degree in Information Technologies',
-        school: 'Technological Institute of Aguascalientes',
-        time: '2004-2010'
-      },
-      {
-        idEducation: 2,
-        title: 'Computer Technician',
-        school: 'CETIS #155',
-        time: '2000-2004'
-      }],
-      professionalSkills: [{
-        id: 1,
-        technology: 'FrontEnd',
-        percent: 'high',
-      },
-      {
-        id: 2,
-        technology: 'Backend',
-        percent: 'expert',
-      }
-      ]
+      loading: true,
+      toggleMenu: false,
+      name: '',      
+      email: '',
+      cell: '',      
+      location: {},
+      socialNetwork:[],
+      education: [],
+      professionalSkill: [],
+      contents: []
     }
+  },
+  methods: {
+    activeAside: () => {
+      console.log('its works');
+    }
+  },
+  mounted() {    
+    axios.get('http://bossinovations.com.stem.arvixe.com/api/Usuario/')
+        .then((response) => {
+          const data = response.data[0];
+          this.name = data.name + ' ' + data.last;
+          this.email = data.email;
+          this.cell = data.cell;   
+          this.location = data.Locations[0];  
+          this.socialNetwork = data.SocialNetworks;  
+          this.education = data.Educations;
+          this.professionalSkill = data.ProfessionalSkills;
+          this.contents = data.Contents;
+          this.loading = false;
+        })
+        .catch((response) => {
+          this.loading = false;
+        });
   }
 }
 </script>

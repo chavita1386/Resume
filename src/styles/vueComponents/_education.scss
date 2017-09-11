@@ -4,7 +4,7 @@
 }
 
 .education__cont{
-  padding: 18px 15px 0 15px;
+  margin: 18px 0;
 }
 
 .education__title{
@@ -12,15 +12,27 @@
   font-weight: 700;
   margin: 0;
   padding: 0;
+
+  @include to(m){
+    font-size: 1.3em;    
+  }
 }
 
 .education__school{
   font-size: .9em;
   margin: 8px 0 5px 0;
+
+  @include to(m){
+    font-size: 1.1em;    
+  }
 }
 
 .education__time{
   font-size: .9em;
   padding: 0;
+
+  @include to(m){
+    font-size: 1.1em;    
+  }
 }
 
