@@ -24,6 +24,9 @@
 .info {
     padding: 0 10px;
     text-align: center;
+    //border: 1px solid #ccc;
+    margin: 10px 0 0 0 ;
+    border-radius: 4px;
     
     @include from(l){        
         padding: 0 60px;
@@ -32,17 +35,35 @@
 
 .info__title {
     text-align: center;
-    border-bottom: 2px solid $link;
-    display: inline-block;
-    //margin:  auto;
-    margin: 1.2em 0;
+    margin: .5em 0;
+    padding: 0 0 3px 0;        
+    border-right: 0 solid $link;
+    border-bottom: 2px solid $link;    
+    color: lighten($black, 7%);
+
+    p {                        
+        margin: 0;
+        padding: 2px 0 0 0;    
+
+        // &::before {            
+        //     // padding: 0 2px 2px 0;
+        //     // //border-top: 2px solid $link;
+        //     // border-left: 0px solid $link;
+        //     // border-right: 0px solid $link;
+        //     // margin-right: 5px;
+        //     // border-radius: 0px 2px 2px 0px; 
+        // }
+
+    }
 }
 
 .info__text {
     text-align: justify;
     color: $black; 
     margin: 0;   
-    line-height: 1.35em;
+    line-height: 1.3em;
+    font-size: .9em;
+    padding: 0 0 10px 0;
 
     strong {
         color: steelblue;

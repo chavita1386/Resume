@@ -1,4 +1,79 @@
 .social {
   //padding: 15px 40px 0 15px;
-  font-family: $font-family;
+  font-family: $font-family;  
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 0 0;
+
+  ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;    
+
+    li {
+      display: inline-block;
+    }
+  }
+
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.padding {
+  padding: 0 1.6em;
+}
+
+.list__li {
+  display: block;
+  padding: 4px;
+  font-size: 1em;
+
+  @include to(m) {
+    font-size: 1.2em;
+  }
+}
+
+.list__link {
+  $font-size: 1.1em;
+  $font-size-mobile: 1.4em;
+  display: block;
+  font-size: $font-size;
+  display: flex;  
+  width: 100%;  
+  line-height: 1.4em;
+
+  @include to(m) {
+    //font-size: $font-size-mobile;
+  }
+
+  .list__ico {
+    line-height: none;
+    font-size: ($font-size + .5);
+    //margin-right: 15px;
+
+    @include to(m){
+      //font-size: ($font-size-mobile + .5);
+    }
+  } 
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover .icon-twitter-square {
+    color: darken($twitter, 20%);
+  }
+
+  &:hover .icon-github-square {
+    color: darken($github, 20%);  
+  }
+
+  &:hover .icon-linkedin-square {
+    color: darken($linkedin, 20%);
+  }
 }

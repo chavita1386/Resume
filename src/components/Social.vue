@@ -1,6 +1,6 @@
 <template>
   <div class="social">
-    <ul class="list">
+    <ul class="">
       <linkList v-for="social in socialItem" :key="social.idSolicalNetwork" :name="social.name" :url="social.url" ></linkList>      
     </ul>
   </div>

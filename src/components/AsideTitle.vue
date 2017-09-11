@@ -1,6 +1,6 @@
 <template>
-	<div class="title">
-		<h4>{{title}}</h4>
+	<div class="padding">
+		<h2 class="info__title">{{title}}</h2>
 	</div>
 </template>
 
@@ -11,7 +11,13 @@ export default {
 		return {
 
 		}
+	},
+	computed: {
+		css() {
+			return "icon-" + this.icon;
+		}
 	}
+
 }
 </script>
 

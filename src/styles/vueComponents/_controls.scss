@@ -1,62 +1,64 @@
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+// .list {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+// }
 
-.padding {
-  padding: 0 1.6em;
-}
+// .padding {
+//   padding: 0 1.6em;
+// }
 
-.list__li {
-  display: block;
-  padding: 4px;
-  font-size: 1em;
+// .list__li {
+//   display: inline-block;
+//   padding: 4px;
+//   font-size: 1em;  
+//   text-align: center;
 
-  @include to(m) {
-    font-size: 1.2em;
-  }
-}
+//   @include to(m) {
+//     font-size: 1.2em;
+//   }
+// }
 
-.list__link {
-  $font-size: 1em;
-  $font-size-mobile: 1.4em;
-  display: block;
-  font-size: $font-size;
-  display: flex;  
-  width: 100%;  
-  line-height: 1.4em;
+// .list__link {
+//   $font-size: .8em;
+//   $font-size-mobile: 1.4em;
+//   display: block;
+//   font-size: $font-size;
+//   display: flex;  
+//   width: 100%;  
+//   line-height: 1.4em;
 
-  @include to(m) {
-    //font-size: $font-size-mobile;
-  }
+//   @include to(m) {
+//     //font-size: $font-size-mobile;
+//   }
 
-  .list__ico {
-    line-height: none;
-    font-size: ($font-size + .5);
-    margin-right: 15px;
+//   .list__ico {
+//     line-height: none;
+//     font-size: ($font-size + .5);
+//     margin-right: 15px;
 
-    @include to(m){
-      //font-size: ($font-size-mobile + .5);
-    }
-  } 
+//     @include to(m){
+//       //font-size: ($font-size-mobile + .5);
+//     }
+//   } 
 
-  &:hover {
-    text-decoration: none;
-  }
+//   &:hover {
+//     text-decoration: none;
+//   }
 
-  &:hover .icon-twitter-square {
-    color: darken($twitter, 20%);
-  }
+//   &:hover .icon-twitter-square {
+//     color: darken($twitter, 20%);
+//   }
 
-  &:hover .icon-github-square {
-    color: darken($github, 20%);  
-  }
+//   &:hover .icon-github-square {
+//     color: darken($github, 20%);  
+//   }
 
-  &:hover .icon-linkedin-square {
-    color: darken($linkedin, 20%);
-  }
-}
+//   &:hover .icon-linkedin-square {
+//     color: darken($linkedin, 20%);
+//   }
+// }
 
 .icon-twitter-square {
   color: $twitter;  
@@ -101,4 +103,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .6s;
   }
+

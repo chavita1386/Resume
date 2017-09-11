@@ -1,44 +1,208 @@
-.header {            
-    height: 190px;            
-    //background-color: $black;    
-    // @include flexCenter();    
-    background: $black url("../assets/header-bg.jpeg") no-repeat center center; 
-    background-size: 100%;
-    position: relative;    
-    &:before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background: $black;
-        opacity: .7;
-        display: block;
-        position: absolute;
-        z-index: 0;        
-    }
+$color: $linkedin; 
+$terminal: $linkedin;
+$terminal-size: 10px;
+.header {              
+		height: 190px;		
+		background: transparent url("../assets/laptop.jpg") no-repeat center -10px;
+		background-size: 125%;
+		position: relative;
+		display: flex;
+		justify-content: center;
+
+		
+		@include from(m){
+			background: transparent url("../assets/laptop.jpg") no-repeat center -19px;
+			background-size: 105%;
+		}
+
+		@include from(l) {
+			background: transparent url("../assets/laptop.jpg") no-repeat center center;
+			//background: $black;
+			//border-right: 1.6em inset black;
+			//border-left: 1.6em inset black;
+			background-size: 90%;
+			height: 200px;
+
+			// &__btnMax {
+			// 	&::after {
+			// 		content: "\46";
+			// 		font-family: untitled-font-1;
+			// 		height: 50px;
+			// 		width: 50px;
+			// 		display: block;
+			// 		z-index: 200;
+			// 		color: white;
+			// 		position: absolute;
+			// 		cursor: pointer;
+			// 		font-size: 1.2em;
+			// 		bottom: 0;
+			// 		right: 0;
+			// 	}
+			// }
+
+			&::before { 
+				opacity: 0;			
+			}
+		}
 
 
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background: $black;
+			opacity: .7;
+			display: block;
+			left: 0;
+			position: absolute;
+			z-index: 0;        
+	}
 }
 
-.header__title {
+.terminal {
+		background-color: white;		
+    margin: 0 50px;
+    border-radius: 5px;
+    padding: 0 0 5px 0;
+		box-shadow: 3px 3px 5px 0px rgba($black, .75);
+		border: 1px solid #ccc;
+		top:none;
+		left:none;
+		position: relative;		
+		z-index: 100; 
+		transition: all 1s;
+		width: 70%;
+		
+		align-self: center;
+
+		@include from(m) {
+			margin: 15px 85px;
+		}
+
+		@include from(l) {
+			margin: 15px 100px;
+		}
+
+		@include from(l) {
+			margin: 15px 90px;
+			width: 45%;
+		}
+		
+	
+		
+		&.min {
+			width:10px;
+			height: 10px;	
+			overflow: hidden;			
+			margin: 0 0;
+			top: 50%;
+			left:50%;
+		}
+
+		&.max {			
+			width: none;
+			height: auto;			
+			transition: all 1s;
+		}
+		
+  }
+  
+  .titleBar {
+    @include from(s){      
+      height: 1.2em;
+      background-color: $gray;
+			border-radius: 3px 3px 0 0;
+			padding: 0 0 0 5px;			      
+		}
+		
+		&__min,
+		&__max,
+		&__clo {
+			display: inline-block;
+			width: .5em;
+			height: .5em;
+			border-radius: 50%;
+		}
+  
+    &__min {
+			background-color: #FEBF00;        
+		}
+		
+		&__max {
+			background-color: #24C946;        
+		}
+
+		&__clo {
+			background-color: #FD6257;        
+		}
+  }
+  
+  .terminal__text {
+    padding: 5px 0 0 0;
+    margin: 0 0 0 3px;
+    font-size: $terminal-size;
+    color: $terminal;
+    font-family: $font-title;
+		font-weight: normal;
+		
+		&::before {
+			content: '[root@linux /]# ';			
+		}
+
+		@include from(m) {
+			font-size: .9em;
+		}
+  }
+
+	.terminal__name {
     padding: 0;
-    margin: 0;
-    position: relative;
-    z-index: 100;
-    position: relative;
-    align-self: center;  
-    color: white;
-    font-size: 1em;
-    text-align: center;
+    margin: 0;            
+    color: $color;
+		text-align: center;
+		min-height: 1.1em;
+		transition: all .3s;
 
     @include from(s) {
-        font-size: 2.1em;
-    }
-
-    @include from(m) {
         font-size: 2.3em;
     }
 
-    @include from(l) {
-        font-size: 2.8em;
+    @include from(m) {
+        font-size: 2.5em;
     }
+
+    @include from(l) {
+        font-size: 3em;
+    }
+}
+
+.terminal__last {        
+    margin: 0;
+    padding: 0;    
+    color: $color;
+    text-align: center;
+		z-index: 100;		
+    font-size: 1.2em;
+		min-height: 1.2em;		
+
+		@include from(m) {
+			font-size: 1.5em;
+		}
+    
+}
+
+.terminal__job {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: $color;        
+
+    @include from(s) {
+        font-size: .8em;        
+        width: 100%;
+		}
+		
+		@include from(m) {
+			font-size: 1em;
+		}
+    
 }

@@ -5,15 +5,19 @@
     overflow: hidden;   
     box-shadow: 6px 0px 10px 0px rgba(130,130,130,0.66);
     width: 20%;    
+
+    transition: all .6s; 
     
     @include to(m){
         width: 100%;
         z-index: 2000;
-        top:150%;
+        left: -150%;
+        //top:150%;
         // bottom: -100vh;        
         transition: all .6s;
         &.in {
             top: 0;
+            left: 0;
             bottom: none;
         }
     }    
@@ -54,7 +58,7 @@
     //     z-index: 1000;
     //     font-family: "untitled-font-1" !important;
     // }
-    .photo__img {        
+    // .photo__img {        
         
-    }
+    // }
 }
