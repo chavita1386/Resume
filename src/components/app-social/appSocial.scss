@@ -1,0 +1,39 @@
+.social {
+  border-bottom: 1px solid $gray;  
+}
+
+.social__link {
+  //align-self: center;  
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.social__name {
+  line-height: 2em;
+}
+
+.icon-twitter-square,
+.icon-github-square,
+.icon-linkedin-square {
+  font-size: 1.6em;
+}
+
+.icon-twitter-square {
+  color: $twitter;
+  &:hover {
+    color: darken($twitter, 15%);
+  }  
+}
+.icon-github-square {
+  color: $github;
+  &:hover {
+    color: darken($github, 15%);
+  }
+}
+.icon-linkedin-square {
+  color: $linkedin;
+  &:hover {
+    color: darken($linkedin, 15%);
+  }
+}

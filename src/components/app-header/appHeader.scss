@@ -1,0 +1,23 @@
+.header {
+  background-color: $color3;
+  border-bottom: 1px solid $gray;
+  height: 250px;
+  @include edContainer;
+  @include crossCenter;
+}
+
+.header__user {  
+  @include edItem(100);  
+}
+
+.header__name {
+  margin: 0;
+  padding: 0;
+}
+
+.header__last {
+  @include mainCenter;
+  margin: 0;
+  padding: 0;
+}
+
