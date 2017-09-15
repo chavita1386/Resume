@@ -1,8 +1,8 @@
 <template>
   <div class="social">
-    <ul class="social_list">
+    
       <app-list-item v-for="item in socialList" :key="item.idSocialNetwork" :name="item.name" :url="item.url"></app-list-item>   
-    </ul>
+    
   </div>
 </template>
 

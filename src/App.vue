@@ -1,16 +1,11 @@
 <template>
   <div id="app">
-
     <app-social :social-list="data.SocialNetworks"></app-social>
     <app-header :name="data.name" :last="data.last"></app-header>
 
     <main class="main">
       <app-content v-for="item in data.Contents" :key="item.idContent" :text="item.contentText" :title="item.title"></app-content>
     </main>
-
-    <code v-text="data">
-
-    </code>
   </div>
 </template>
 

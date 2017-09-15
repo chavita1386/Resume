@@ -1,39 +1,68 @@
 .social {
   border-bottom: 1px solid $gray;  
+  background-color: white;
+  display: flex;
+  align-items: center;
+  align-content:center; 
+  justify-content: center;
+  height: 40px;
+}
+
+.social__list {
+  margin: .6em .3em;
+  @include from(s){
+    
+  }
 }
 
 .social__link {
-  //align-self: center;  
+  //align-self: center;    
   display: flex;
   align-content: center;
   align-items: center;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-.social__name {
-  line-height: 2em;
+.social__name {  
+  line-height: 1em;  
+  @include from(s){
+  }
 }
 
 .icon-twitter-square,
 .icon-github-square,
-.icon-linkedin-square {
-  font-size: 1.6em;
+.icon-linkedin-square {  
+  font-size: 1.2em;
+  align-self: center;
+  @include from(m){
+  }
 }
 
 .icon-twitter-square {
   color: $twitter;
+  margin: 5px 5px 0 5px;
   &:hover {
     color: darken($twitter, 15%);
+    text-decoration: none;
   }  
 }
 .icon-github-square {
   color: $github;
+  margin: 5px 5px 0 5px;
   &:hover {
     color: darken($github, 15%);
+    text-decoration: none;
   }
 }
 .icon-linkedin-square {
   color: $linkedin;
+  margin: 5px 5px 0 5px;
   &:hover {
     color: darken($linkedin, 15%);
+    text-decoration: none;
   }
 }
