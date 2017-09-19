@@ -7,6 +7,15 @@
   .content:nth-child(3) {
     border: 0px solid red;    
   }
+
+  @include from(m){
+    width: 75%; 
+    float: right;
+  }
+
+  @include from(l){
+    width: 80%;
+  }
 }
 .content {
   @include edItem;

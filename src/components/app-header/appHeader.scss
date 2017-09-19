@@ -10,10 +10,13 @@
 
   @include from(m) {
     background-size: 115%;
+    width: 75%;
+    float: right;
   }
 
   @include from(l){
     background-size: 100%;
+    widths: 80%;
   }
   &::before {
     content: '';

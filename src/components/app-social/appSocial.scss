@@ -6,6 +6,15 @@
   align-content:center; 
   justify-content: center;
   height: 40px;
+
+  @include from(m) {
+    width: 75%;
+    float: right;
+  }
+
+  @include from(l){
+    width: 80%;
+  }
 }
 
 .social__list {

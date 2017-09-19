@@ -1,0 +1,217 @@
+.aside {    
+  position:fixed;
+  top:0;
+  left:-100%;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  transition: left .3s;
+  background-color: white;  
+  overflow: hidden;
+
+  &.in {
+    left: 0;
+    z-index: 1000;
+  }
+
+  @include from(m){
+    border-right: 1px solid red;
+    color: $black;
+    display: flex;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  @include from(l){
+    width: 20%;
+  }
+  
+  .title {
+    margin: 15px auto;
+    width: 70%;    
+    border-bottom: 2px solid $color2;
+  }
+}
+
+.content--overflow {
+  //width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+  margin: 0 -18px 0 0;
+  padding: 0 18px 0 0;
+}
+.photo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;   
+  height: 150px;
+}
+
+.photo__img {
+  width: 50%;
+  border: 0px solid red;  
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px 2px rgba($black, .5);
+
+  @include to(s) {
+    width: 120px;
+  }
+
+  @include from(m) {
+    width: 60%;
+  }
+
+  @include from(l) {
+    width: 50%;
+  }
+}
+
+.contact {      
+  width: 100%;
+  &__list{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+  }
+
+  &__li {
+    font-size: .9em;
+    display: block;
+    width: 100%;
+    margin: 7px 0;
+  }
+}
+
+.education__card {
+  // border-bottom: 1px solid $gray;
+  margin: 1.5em 0 0 0;
+  padding: 0 10px;
+
+  h4 {
+    margin: 10px 0;
+  }
+
+  h5 {
+    margin: 5px 0;
+    color: darken($color4, 20%);
+    font-weight: normal;
+  }
+
+  span {
+    font-size: .85em;
+    margin: 2px;
+    color: darken($color2, 15%);
+  }
+}
+
+.skills {
+  @include edContainer;
+}
+
+.skills__item {
+  @include edItem(50,50);
+
+  label {
+    font-size: .8em;
+  }
+}
+
+.battery {
+  border: 0px solid red;  
+  display: block;
+  padding:0;
+  margin: 0;    
+  position: relative;
+
+  &::after,
+  &::before {
+    font-family: "chavitaicon" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+  }
+
+  &::before {  
+    display: inline-block;    
+    border: 0px solid green;  
+    font-size: 2.7em;  
+    margin: 0;
+    vertical-align: top;
+    padding: 5px 10px;
+  }
+
+  &::after {
+    content: "\48";
+    display: inline-block;    
+    border: 0px solid green;  
+    font-size: 1em;
+    overflow: hidden;  
+    margin: 0;
+    width: 100%;    
+    position: absolute;
+    top:50%;
+    left:0;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+    transform: translateY(-50%);
+
+    animation-name: battery;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-delay: .5s;
+  }
+}
+
+.battery--low::before {
+  content: "\4b";
+  color: red;
+}
+
+.battery--middle::before {
+  content: "\4a";
+  color: steelblue;
+}
+
+.battery--high::before {
+  content: "\49";
+}
+
+.battery--middle::after {
+  color: white;
+  left: -10px;
+}
+
+.battery--low::after{
+  color: $red;  
+}
+
+@keyframes battery {
+  0% {
+    //color: red;
+    opacity: 1;    
+  }
+  25% {
+    //color: white;
+    opacity: .50;
+  }
+  50% {
+    //color: red;
+    opacity: 0;
+  }
+  75% {
+    //color: white;
+    opacity: .50;
+  }
+  100% {
+    //color: red;
+    opacity: 1;
+  }
+}
