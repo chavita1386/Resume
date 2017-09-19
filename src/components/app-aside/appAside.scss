@@ -10,12 +10,11 @@
   overflow: hidden;
 
   &.in {
-    left: 0;
-    z-index: 1000;
+    left: 0;    
   }
 
   @include from(m){
-    border-right: 1px solid red;
+    border-right: 0px solid red;
     color: $black;
     display: flex;
     width: 25%;

@@ -1,0 +1,13 @@
+.menu {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 1px solid red; 
+  display: inline-block;
+  padding: 5px;
+  
+  .menu__link {
+    font-size: 2em;
+    color: red;
+  }
+}

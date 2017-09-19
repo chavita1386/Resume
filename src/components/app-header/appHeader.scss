@@ -16,7 +16,7 @@
 
   @include from(l){
     background-size: 100%;
-    widths: 80%;
+    width: 80%;
   }
   &::before {
     content: '';
