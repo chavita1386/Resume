@@ -1,13 +1,48 @@
 .menu {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  border: 1px solid red; 
-  display: inline-block;
-  padding: 5px;
+  bottom: 10px;
+  right: 10px;  
+  //border: 1px solid $color1;   
+  //padding: 5px;  
+  vertical-align: top;
+  z-index: 2500;
+
+  &.in {
+    
+    .menu__link::before {
+      content: "\77";
+    }
+  }
+
+  @include from(m){
+    display: none;    
+  }
+  
   
   .menu__link {
-    font-size: 2em;
-    color: red;
+    font-size: 1.7em;
+    color: white;    
+    line-height: 1em;
+    display: block;
+    padding: 5px;
+    //margin:5px;
+    border: 1px solid $color1; 
+    border-radius: 50%;
+    background-color: $color1; 
+    box-shadow: 3px 3px 14px -2px rgba(74,74,74,1); 
+    
+    &:hover {      
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "\41";
+      line-height: 1em;
+      display: block;
+      padding: 8px;    
+    }
   }
+
+  
 }

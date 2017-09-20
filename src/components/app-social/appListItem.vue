@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     css() {
-      console.log(this);
+      //console.log(this);
       return 'icon-' + this.name + '-square';
     }
   }

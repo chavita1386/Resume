@@ -1,5 +1,5 @@
 <template>
-  <div class="aside">
+  <div class="aside">    
     <div class="content--overflow">
       <div class="photo">
         <img src="../../assets/profile-md.jpg" alt="Salvador Rocha" class="photo__img">
@@ -39,6 +39,9 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    
   }
 
 }

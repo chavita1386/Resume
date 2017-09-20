@@ -6,6 +6,11 @@
   align-content:center; 
   justify-content: center;
   height: 40px;
+  transition: margin-left .5s;
+
+  &.in {
+    margin-left: 100%;
+  }
 
   @include from(m) {
     width: 75%;

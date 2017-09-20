@@ -3,6 +3,10 @@
   top: -3em;
   padding: 0 1em;  
   //background-color: rgba($gray, .5);
+  transition: margin-left .5s;
+  &.in {
+      margin-left: 100%;
+  }
 
   .content:nth-child(3) {
     border: 0px solid red;    
