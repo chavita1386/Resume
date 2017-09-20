@@ -32,7 +32,9 @@ export default {
     return {
       msg: 'Resume',
       menu: false,
-      data: ''
+      data: {
+        Locations: [ {}]
+      }
     }
   },
   mounted() {
@@ -49,13 +51,13 @@ export default {
   },
   methods: {
     toggleMenu() {
-      console.log('App toggleMenu');
-      console.log(this.menu);
+      // console.log('App toggleMenu');
+      // console.log(this.menu);
       this.menu = !this.menu;
-      console.log(this.menu);
+      // console.log(this.menu);
     },
     closeMenu() {
-      console.log('App closeMenu');
+      // console.log('App closeMenu');
       this.menu = false;
     }
   }

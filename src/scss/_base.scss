@@ -62,9 +62,11 @@ li {
     margin: 0 10px;
 }
 
+
+
 a {
     color: $color2;
-    
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);     
     /* unvisited link */
     &:link {
         border: 0px solid transparent;
