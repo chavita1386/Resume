@@ -5,7 +5,7 @@
   //background-color: rgba($gray, .5);
   transition: margin-left .5s;
   &.in {
-      margin-left: 100%;
+      left: 100%;
   }
 
   .content:nth-child(3) {
