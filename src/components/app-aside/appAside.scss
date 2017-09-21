@@ -121,7 +121,7 @@
 }
 
 .skills__item {
-  @include edItem(50,50);
+  @include edItem(1/3);
 
   label {
     font-size: .8em;
