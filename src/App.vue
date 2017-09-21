@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <app-menu @showMenu="toggleMenu" :class="menu ? 'in': ''"></app-menu>    
-
     <app-aside :cell="data.cell" :email="data.email" :city="data.Locations[0].city" :state="data.Locations[0].state" :country="data.Locations[0].country" :postcode="data.Locations[0].postcode" :educations="data.Educations" :skills="data.ProfessionalSkills" :class="menu ? 'in':''"
     ></app-aside>
     
-    <app-social :social-list="data.SocialNetworks" :class="menu ? 'in':''"></app-social>
-    <app-header :name="data.name" :last="data.last" :class="menu ? 'in':''"></app-header>
-
-    <main class="main" :class="menu ? 'in':''">
-      <app-content v-for="item in data.Contents" :key="item.idContent" :text="item.contentText" :title="item.title"></app-content>
-    </main>
+    <div class="principal" :class="menu ? 'in':''">
+      <app-social :social-list="data.SocialNetworks" ></app-social>
+      <app-header :name="data.name" :last="data.last" ></app-header>
+      <main class="main" >
+        <app-content v-for="item in data.Contents" :key="item.idContent" :text="item.contentText" :title="item.title"></app-content>
+      </main>
+    </div>
     
     
   </div>

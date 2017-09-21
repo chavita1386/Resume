@@ -62,8 +62,6 @@ li {
     margin: 0 10px;
 }
 
-
-
 a {
     color: $color2;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);     
@@ -86,5 +84,13 @@ a {
     &:active {
         border: 0px solid transparent;
         outline:none;
+    }
+}
+
+.principal {
+    transition: margin-left .5s;
+
+    &.in {
+        margin-left: 100%;
     }
 }

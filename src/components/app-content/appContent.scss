@@ -4,8 +4,10 @@
   padding: 0 1em;  
   //background-color: rgba($gray, .5);
   transition: margin-left .5s;
+
+
   &.in {
-      left: 100%;
+      margin-left: 100%;
   }
 
   .content:nth-child(3) {
