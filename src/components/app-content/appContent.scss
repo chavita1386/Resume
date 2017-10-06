@@ -45,8 +45,7 @@
 }
 
 .info__data {
-  @include edItem(100);
-  //border-right: 2px solid $color3;
+  @include edItem(100);  
   align-self: center;
   text-align: center;
   padding: 0 10px;
@@ -131,8 +130,7 @@
   }
 }
 
-.info__text {
-  //font-size: .9em;
+.info__text {  
   color: $black;
   margin:0 0 5px 0;
 
