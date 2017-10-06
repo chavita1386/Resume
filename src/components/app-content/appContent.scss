@@ -1,197 +1,148 @@
-.main {
-  position: relative;
-  top: -3em;
-  padding: 0 1em;  
-  //background-color: rgba($gray, .5);
-  transition: margin-left .5s;
+.main { 
+  @include edContainer;
+  overflow: visible;
+}
 
+.content {
+  @include edItem(100);    
+  margin: 1.5em 0;
 
-  &.in {
-      margin-left: 100%;
+  &:nth-child(2) {
+    @include edItem(100);
   }
-
-  .content:nth-child(3) {
-    border: 0px solid red;    
-  }
-
-  @include from(m){
-    width: 75%; 
+  
+  &:nth-child(3) {
+    @include edItem(100);
     float: right;
   }
 
-  @include from(l){
-    width: 80%;
-  }
-}
-.content {
-  @include edItem;
-  border: 0px solid $gray;
-  border-radius: 7px;
-  margin-bottom: 1em;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    background-color: rgba(255, 255, 255, .77);
-    height: 200%;
-    margin-right:-4px; 
-    filter: blur(5px);
-    width: 120%;
-    vertical-align: middle;
-    position: absolute;
-    top: -2em;
-    left:-2em;    
-  }
-}
-
-.content__in{
-  position: relative;
-  top: 0;
-  left:0;  
-  width: 100%;
-  z-index: 100;
-  height: 100%;
-  background-color: transparent;
 }
 
 .content__title {
-  margin: 0;
-  padding: 1em 0;
-  font-size: 1.9em;
-  font-weight: 500;
+  color: $black;
+  font-size: 1.7em;
+
+  &.in {
+    animation: rotate-in 1s forwards .2s;
+  }
 }
 
 .content__text {
-  padding: 0;
-  margin: 0 0 1em 0;  
   font-size: 1.1em;
-  line-height: 1.4em;
-
-  p {
-    margin: 0;
-    text-align: justify;
-  }
+  font-weight: 300;  
+  
 }
 
-.info__title {
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
 
-  @include from(m) {
-    text-align: right;
-  }
+/*
+  Experience
+*/
+
+.info__container {
+  @include edContainer;
+  box-shadow: 3px 3px 4px 0px rgba(153,153,153,.8);
+  border-radius: 5px 5px 0 0;
 }
 
-.info__title--h4 {
-  color: $color3;
-  font-size: 1em;    
-  margin-top: 0;
-}
-
-.info__title--h5 {
-  color: $color4;
-  font-size: .8em;  
-  border: 0px solid red;
+.info__data {
+  @include edItem(100);
+  //border-right: 2px solid $color3;
+  align-self: center;
+  text-align: center;
+  padding: 0 10px;
+  border: 1px solid $gray;
+  border-radius: 5px 5px 0 0;
   position: relative;
-  &::before {
-    content: "\47";    
-    font-family: "chavitaicon"; 
-    font-weight: normal;
+  background: linear-gradient(to bottom, rgba(244,244,244,1) 0%, rgba(246,246,246,1) 47%, rgba(239,239,239,1) 100%);
+  background-color: transparent;
+  
+
+  &:before {
+    content: '-';
+    font-size: 1.8em;
+    font-weight: bold;
     display: inline-block;
-    position: relative;
-    margin: 0 5px 0 0;
-    font-size: 1em;  
-    top: 1px; 
-    border:0px solid green;     
-    //line-height: 1.8em;
+    border: 0px solid red;
+    width: 10px;
+    line-height: .6em;
+    height: 100%;      
+    color: $gray;   
+    position: absolute;
+    right: 30px;      
+  }
+
+  &:after {
+    content: '';        
+    display: block;    
+    width: 15px;
+    height: 15px;           
+    color: lighten($black, 18%);         
+    position: absolute;
+    top: 5px;
+    border: 2px solid $gray;
+    right: 10px;      
     
   }
 }
 
-.info__container {
-  @include edContainer;
-  margin: 0;  
-}
+.info__title {
+  margin: 0 auto;
+  padding: 3px;
+  color: lighten($black, 30%);
+  font-weight: 500;
+  font-size: .8em;    
+  position: relative;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px 5px 0 0;
 
-.info__data {
-  @include edItem(100,30, 20);
-  padding: 0;  
-  @include from(m) {
-    border-right: 1.5px solid $color3;
-    padding-right: .5em; 
-  }
-
-  @include from(l) {
-    padding-right: 1em; 
-  }
 }
 
 .info__desc {
-  @include edItem(100,70, 80);
-  margin: 1em 0 0 0;
-  padding: 0;
-
-  @include from(m) {
-    margin: 0;
-    padding: 0 0 0 .5em;
-  }
-
-  @include from(l){
-    padding: 0 0 0 1em;
-  }
-
-}
-
-.container {
-  @include edContainer;
-  //margin: 0;
-  @include mainDistribute;
-}
-
-.card {  
-  border: 0px solid red;  
-  @include edItem(100,50,1/3);
-  margin-bottom: 20px;
-  padding: 0 5px;
-
-  .card__content {    
-    border-top: 1px solid darken($gray, 20%);    
-    border-right: 1px solid darken($gray, 20%);
-    border-bottom: 1px solid darken($gray, 20%);
-    border-left: 1px solid darken($gray, 20%);
-    color: white;    
-    padding: 0 0px;
-    border-radius: 4px 4px 0 0;
-  }
-
-  h4 {
-    padding: 8px 15px;
-    margin: 0;
-    color: $black;
-    background-color: darken($gray, 5%);
-    font-weight: normal;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
-  h5 {
-    padding: 5px 0 8px 0;
-    margin: 0;
-    color: $color3;
-    font-weight: normal;
-    background-color: white;
-  }
-}
-
-.card:last-child {
-  @include edItem(100,50,100);
-  margin-bottom: 10px;
-  padding:  0 5px;  
+  border-top: 0px solid $gray;
+  border-right: 2px solid $gray;
+  border-bottom: 2px solid $gray;
+  border-left: 2px solid $gray;
+  background: #fff;  
+  text-align: left;  
   
-  .card__content {    
-    //@include mainCenter();
+  p.info__text {
+    font-size: .9em;
+    line-height: 1.1em;
+    text-align: justify;
+  }
+  @include edItem(100);  
+
+}
+
+.info__date {
+  text-align: center;
+  color: $color2;
+  margin: 5px 0;
+
+  &::before {
+    content: "chavita@ubuntu:~$ date";
+    margin: 0 0 5px 0;
+    color: lighten($black, 20%);
+    opacity: .6;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+  }
+}
+
+.info__text {
+  //font-size: .9em;
+  color: $black;
+  margin:0 0 5px 0;
+
+  &::before {
+    content: "chavita@ubuntu:~$ description";
+    margin: 0 0 5px 0;
+    color: lighten($black, 20%);
+    opacity: .6;
+    display: block;
+    font-size: .9em;
+    text-align: left;
   }
 }

@@ -1,24 +1,25 @@
-.social {
-  border-bottom: 1px solid $gray;  
-  background-color: white;
+.social {    
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   align-content:center; 
-  justify-content: center;
+  justify-content: flex-end;
   height: 40px;
   transition: margin-left .5s;
+  position: absolute;
+  top:0;
+  right:25px;  
 
   &.in {
     margin-left: 100%;
   }
 
   @include from(m) {
-    width: 75%;
+    width: 100%;
     float: right;
   }
 
   @include from(l){
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -29,13 +30,13 @@
   }
 }
 
-.social__link {
-  //align-self: center;    
+.social__link {  
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
-
+  color: $white;
+  font-size: .9em;
   &:hover {
     text-decoration: none;
   }
@@ -50,7 +51,7 @@
 .icon-twitter-square,
 .icon-github-square,
 .icon-linkedin-square {  
-  font-size: 1.2em;
+  font-size: 1.3em;
   align-self: center;
   @include from(m){
   }

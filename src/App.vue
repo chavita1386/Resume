@@ -1,53 +1,51 @@
 <template>
-  <div id="app">
+  <div id="app"  >
     <app-menu @showMenu="toggleMenu" :class="menu ? 'in': ''"></app-menu>    
-    <app-aside :cell="data.cell" :email="data.email" :city="data.Locations[0].city" :state="data.Locations[0].state" :country="data.Locations[0].country" :postcode="data.Locations[0].postcode" :educations="data.Educations" :skills="data.ProfessionalSkills" :class="menu ? 'in':''"
+    
+    <app-aside :cell="data.cell" :email="data.email" :city="data.Locations[0].city" :state="data.Locations[0].state" :country="data.Locations[0].country" :postcode="data.Locations[0].postcode" :educations="data.Education" :skills="data.ProfessionalSkills" :menu="menu" :class="menu ? 'in':''"
     ></app-aside>
-    
-    <div class="principal" :class="menu ? 'in':''">
-      <app-social :social-list="data.SocialNetworks" ></app-social>
-      <app-header :name="data.name" :last="data.last" ></app-header>
-      <main class="main" >
-        <app-content v-for="item in data.Contents" :key="item.idContent" :text="item.contentText" :title="item.title"></app-content>
-      </main>
-    </div>
-    
-    
+    <!-- <app-aside></app-aside> -->
+    <app-main :social-networks="data.SocialNetworks" :name="data.name" :last="data.last" :ready="ready" :contents="data.Contents" :menu="menu"></app-main>  
   </div>
 </template>
 
 <script>
 import moment from 'moment';
 import axios from 'axios';
-import appHeader from './components/app-header/appHeader.vue';
+// import appHeader from './components/app-header/appHeader.vue';
 import appSocial from './components/app-social/appSocial.vue';
-import appContent from './components/app-content/appContent.vue';
+// import appContent from './components/app-content/appContent.vue';
 import appAside from './components/app-aside/appAside.vue';
 import appMenu from './components/app-menu/appMenu.vue';
+import appMain from './components/app-main/appMain.vue';
 
 export default {
   name: 'app',
-  components: { appHeader, appSocial, appContent, appAside, appMenu },
+  components: {  appSocial, appAside, appMenu, appMain },
   data() {
     return {
       msg: 'Resume',
       menu: false,
+      ready: false,
+      scrolled: false,
       data: {
-        Locations: [ {}]
+        Locations: [{}]
       }
     }
   },
   mounted() {
-    //console.warn('Created: ' + moment().format('HH:mm:ss'));
-    axios.get('http://bossinovations.com.stem.arvixe.com/api/Usuario/2')
-      .then((response) => {
-        //console.log(response.data);
-        this.data = response.data;
-        //console.warn('data:' + moment().format('HH:mm:ss'));
+    //console.warn('Created: ' + moment().format('HH:mm:ss'));    
+    axios.get('http://chetur.com/api/user/')
+      .then((response) => {        
+        this.data = response.data.users[0];
+        this.ready = true;        
       })
       .catch((response) => {
         //console.log(reponse);
       });
+  },
+  created () {    
+      
   },
   methods: {
     toggleMenu() {
@@ -59,7 +57,7 @@ export default {
     closeMenu() {
       // console.log('App closeMenu');
       this.menu = false;
-    }
+    }    
   }
 }
 </script>

@@ -5,7 +5,7 @@
         <img src="../../assets/profile-md.jpg" alt="Salvador Rocha" class="photo__img">
       </div>
       <div class="contact">
-        <h2 class="title">Contact</h2>
+        <h2 class="title" :class="menu ? 'in': ''"><span>Contact</span></h2>
         <ul class="contact__list">
           <li class="contact__li">{{cell}}</li>
           <li class="contact__li">{{email}}</li>
@@ -15,14 +15,14 @@
       </div>
 
       <div class="education">
-        <h2 class="title">Education</h2>
+        <h2 class="title" :class="menu ? 'in': ''"><span>Education</span></h2>
         <app-education v-for="item in educations" :key="item.idEducation" :title="item.title" :school="item.school" :time="item.time"></app-education>
       </div>      
 
-      <div>
+      <!-- <div>
         <h2 class="title">Skills</h2>
         <app-skills :skills="skills"></app-skills>
-      </div>
+      </div> -->
 
     </div>
 
@@ -33,7 +33,7 @@
 import appEducation from './appEducation.vue';
 import appSkills  from './appSkills.vue';
 export default {
-  props: ['cell', 'email', 'city', 'state', 'country', 'postcode', 'educations', 'skills'],
+  props: ['cell', 'email', 'city', 'state', 'country', 'postcode', 'educations', 'skills', 'menu'],
   components: { appEducation, appSkills },
   data() {
     return {
