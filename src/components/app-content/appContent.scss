@@ -1,12 +1,18 @@
 .main { 
   @include edContainer;
   overflow: visible;
+  position: relative;
+  
 }
-
+.container {
+  @include edContainer;
+}
 .content {
   @include edItem(100);    
-  margin: 1.5em 0;
+  margin: 0.5rem 0;
+  position: relative;
 
+  
   &:nth-child(2) {
     @include edItem(100);
   }
@@ -20,16 +26,29 @@
 
 .content__title {
   color: $black;
-  font-size: 1.7em;
+  font-size: 1.7rem;   
+  margin: 2rem 0; 
+  position: relative;
+  text-rendering: optimizeLegibility;  
+  --webkit-font-smoothing: antialiased;
 
   &.in {
     animation: rotate-in 1s forwards .2s;
   }
+
+  
+
 }
 
 .content__text {
-  font-size: 1.1em;
-  font-weight: 300;  
+  
+  @include edContainer;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: 300; 
+  & > p
+  {margin: 0;}
+
   
 }
 
@@ -39,13 +58,13 @@
 */
 
 .info__container {
-  @include edContainer;
+  @include edItem(100, 50);
+  padding: 0;
   box-shadow: 3px 3px 4px 0px rgba(153,153,153,.8);
   border-radius: 5px 5px 0 0;
 }
 
-.info__data {
-  @include edItem(100);  
+.info__data {  
   align-self: center;
   text-align: center;
   padding: 0 10px;
@@ -60,26 +79,24 @@
     content: '-';
     font-size: 1.8em;
     font-weight: bold;
-    display: inline-block;
-    border: 0px solid red;
+    display: inline-block;    
     width: 10px;
-    line-height: .6em;
+    line-height: 1em;
     height: 100%;      
-    color: $gray;   
+    color: lighten($black, 40%);   
     position: absolute;
-    right: 30px;      
+    right: 48px;      
   }
 
   &:after {
     content: '';        
     display: block;    
     width: 15px;
-    height: 15px;           
-    color: lighten($black, 18%);         
+    height: 15px;               
     position: absolute;
-    top: 5px;
-    border: 2px solid $gray;
-    right: 10px;      
+    top: 9px;
+    border: 3px solid lighten($black, 40%);
+    right: 25px;      
     
   }
 }
@@ -95,6 +112,20 @@
   vertical-align: middle;
   border-radius: 5px 5px 0 0;
 
+  &::before {
+    content: 'X';
+    font-size: 1.3em;
+    font-weight: bold;
+    display: inline-block;
+    border: 0px solid red;
+    width: 10px;
+    line-height: 1.5em;
+    height: 100%;      
+    color: lighten($black, 40%); 
+    position: absolute;
+    right: 0;       
+  }
+
 }
 
 .info__desc {
@@ -102,27 +133,22 @@
   border-right: 2px solid $gray;
   border-bottom: 2px solid $gray;
   border-left: 2px solid $gray;
-  background: #fff;  
+  background: #333;  
   text-align: left;  
-  
-  p.info__text {
-    font-size: .9em;
-    line-height: 1.1em;
-    text-align: justify;
-  }
-  @include edItem(100);  
+  font-family: $font2;
+  padding: 10px;    
 
 }
 
 .info__date {
   text-align: center;
   color: $color2;
-  margin: 5px 0;
+  margin: 0;
 
   &::before {
     content: "chavita@ubuntu:~$ date";
     margin: 0 0 5px 0;
-    color: lighten($black, 20%);
+    color: lighten($black, 35%);
     opacity: .6;
     display: block;
     font-size: .8em;
@@ -131,16 +157,71 @@
 }
 
 .info__text {  
-  color: $black;
-  margin:0 0 5px 0;
+  color: $white;
+  margin:10px 0 5px 0;    
+  font-size: .9em;
+  line-height: 1.2em;
+  text-align: justify;  
+  
 
   &::before {
     content: "chavita@ubuntu:~$ description";
     margin: 0 0 5px 0;
-    color: lighten($black, 20%);
+    color: lighten($black, 35%);
     opacity: .6;
     display: block;
-    font-size: .9em;
+    font-size: 0.9rem;
     text-align: left;
+  }
+}
+
+.card {  
+  margin:  0 0 15px 0;  
+  @include edItem(100, 50, 1/3);  
+}
+
+.card__content {
+  border: 4px solid $gray;
+  padding: 5px 10px;
+
+  &::before {
+    content: "\4e";
+    @include iconFont;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: $red;
+    display: inline-block;
+    margin: 6px;
+  }
+  h4, h5 {
+    margin: 0;
+    padding: 0;
+
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba($color1, .3);
+  }
+
+  h5 {
+    font-weight: normal;
+  }
+
+  h5:nth-child(3) {
+    &::before {
+      content: "\47";            
+      display: inline-block;
+      font-family: "chavitaicon" !important;    
+      font-style: normal !important;
+      font-weight: normal !important;
+      font-variant: normal !important;
+      text-transform: none !important;
+      position: relative;
+      top: 1px;
+      margin: 0 5px 0 0;
+      opacity: .8;
+    }
   }
 }

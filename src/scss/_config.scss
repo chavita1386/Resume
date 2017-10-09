@@ -17,3 +17,14 @@ $red: #e22d2d;
 $twitter:#1DA1F2;
 $github: #8b2c9e;
 $linkedin: #0077B5;
+
+$font1 : 'Nunito', sans-serif;
+$font2 : 'Inconsolata', monospace;
+
+@mixin iconFont() {
+  font-family: "chavitaicon" !important;    
+  font-style: normal !important;    
+  font-weight: normal !important;    
+  font-variant: normal !important;    
+  text-transform: none !important;
+}

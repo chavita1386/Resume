@@ -2,12 +2,13 @@
   display: flex;
   align-items: flex-end;
   align-content:center; 
-  justify-content: flex-end;
+  justify-content: center;
   height: 40px;
   transition: margin-left .5s;
+  width: 100%;
   position: absolute;
   top:0;
-  right:25px;  
+  //left:50%;    
 
   &.in {
     margin-left: 100%;

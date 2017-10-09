@@ -2,7 +2,7 @@
   <div class="social__item">
         <a href="#" class="social__link">        
           <span :class="css"></span>
-          <span class="social__name">{{name}}</span>
+          <!-- <span class="social__name">{{name}}</span> -->
         </a>
   </div>
 </template>
